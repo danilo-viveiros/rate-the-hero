@@ -1,3 +1,6 @@
+import { Button } from "style-components"
 export function Search(){
-return <div> Pagina pagina de busca - INICIAL </div>
+return <div> 
+        <Button>Buscar</Button>
+     </div>
 }
