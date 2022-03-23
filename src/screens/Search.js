@@ -1,6 +1,8 @@
-import { Button } from "style-components"
-export function Search(){
-return <div> 
-        <Button>Buscar</Button>
-     </div>
+import { Button } from '../common-components/button/Button';
+export function Search() {
+	return (
+		<div>
+			<Button ghost={true}>Buscar</Button>
+		</div>
+	);
 }
