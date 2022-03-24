@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import {
 	Colors,
 	FontFamilies,
+	FontLetterSpacings,
 	FontLineHeights,
 	FontSizes,
 	FontWeights,
