@@ -13,10 +13,10 @@ import {
 }from '../../shared/DesignTokens'
 
 const InformationGrid = styled(Box)`
-    display:Grid;
-    grid-tamplate-columns: 1fr 70px;
-    gap: ${Spaces.TWO};
-    `;
+	display: grid;
+	grid-template-columns: 1fr 70px;
+	gap: ${Spaces.TWO};
+`;
 
 const HeroAvatar = styled.div`
     width:100%;
@@ -48,7 +48,7 @@ export function HeroCard({secretIndentity, name, picture, universe, id}){
                         <strong>Nota atual:</strong>-
                     </Description>
                 </Box> 
-                <HeroAvatar src={picture}/>
+                <HeroAvatar src="https://www.superherodb.com/pictures2/portraits/10/100/639.jpg" />
             </InformationGrid>
             <Box width="87px">
                 <ButtonLink to={`/detalhes/${id}`}>Ver mais</ButtonLink>

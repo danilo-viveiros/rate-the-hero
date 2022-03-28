@@ -13,6 +13,7 @@
     "react-loading-skeleton": "^3.0.3",
     "react-router-dom": "^6.2.2",
     "react-scripts": "5.0.0",
+    "reflexbox": "^4.0.6",
     "style-components": "^0.1.0",
     "styled-components": "^5.3.3",
     "web-vitals": "^2.1.4"
@@ -43,7 +44,6 @@
   },
   "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
   "main": "index.js",
-  "devDependencies": {},
   "author": "",
   "license": "ISC"
 }
