@@ -71,10 +71,12 @@ export function Search(){
 			>
 				{heroes.results.map((hero) => (
 					<HeroCard
-						secretIdentity={hero.secretIdentity}
+						key={hero.id}
+						id={hero.id}
+						secretIndentity={hero.biography['full-name']}
 						name={hero.name}
-						picture={hero.picture}
-						universe={hero.universe}
+						picture={hero.image.url}
+						universe={hero.biography.publisher}
 					/>
 				)
 				)}
