@@ -5,6 +5,8 @@ import { Button } from '../common-components/button/Button';
 import { SearchField } from '../common-components/searchField/SearchField';
 import { HeroCard } from '../components/heroCard/HeroCard';
 import { Spaces } from '../shared/DesignTokens'
+import useAxios from "axios-hooks";
+
 const HeroesGrid = styled(Box)`
 display:grid;
 grid-template-columns: 1fr;
@@ -16,30 +18,34 @@ gap: ${Spaces.ONE_HALF};
 `;
 
 export function Search(){
-	const initialState = [
-		{
-			secretIdentity: 'Terry McGinnis',
-			name: 'Batman',
-			picture:
-				'https://www.superherodb.com/pictures2/portraits/10/100/10441.jpg',
-			universe: 'DC Comics',
-		},
-		{
-			secretIdentity: 'Bruce Wayne',
-			name: 'Batman',
-			picture:
-				'https://www.superherodb.com/pictures2/portraits/10/100/639.jpg',
-			universe: 'DC Comics',
-		},
-		{
-			secretIdentity: 'Dick Grayson',
-			name: 'Batman II',
-			picture:
-				'https://www.superherodb.com/pictures2/portraits/10/100/1496.jpg',
-			universe: 'DC Comics',
-		},
-	];
-	const [heroes, setHeroes] = React.useState(initialState)
+	const [search, setSearch] = React.useState({
+		value:'captain',
+		doSearch: false,
+	})
+	const [{data: heroes}, searchHero] = useAxios(
+		`/search/${search.value}`
+	)
+
+	React.useEffect(()=>{
+		searchHero()
+	},[]);
+
+	React.useEffect(()=>{
+		if (search.doSearch){
+			searchHero().then(()=>{
+				setSearch((prevValue)=>({...prevValue, doSearch:false}))
+			})
+		}
+	},[search])
+
+	function handleUpdateSearchValue({target:{value}}) {
+		setSearch((prevValue)=>({...prevValue,value}))
+	}
+
+	function handleSearch(){
+		setSearch((prevValue)=>({...prevValue,doSearch:true}))
+	}
+
 	return(
 		<>
 			<Flex
@@ -50,25 +56,29 @@ export function Search(){
 				mb={[Spaces.TWO, Spaces.FOUR]}
 			>
 				<Box flexGrow="1">
-					<SearchField placeholder="Digite um nome de herói ou heroína" />
+					<SearchField
+					 placeholder="Digite um nome de herói ou heroína" 
+					 onKeyUp={handleUpdateSearchValue} 
+					/>
 				</Box>
 				<Box ml={Spaces.TWO}>
-					<Button>Buscar</Button>
+					<Button onClick={handleSearch}>Buscar</Button>
 				</Box>
 			</Flex>
-			<HeroesGrid
+			{heroes && (<HeroesGrid
 				px={[Spaces.ONE, Spaces.TWO]}
 				pb={[Spaces.ONE, Spaces.TWO]}
 			>
-				{heroes.map((hero) => (
+				{heroes.results.map((hero) => (
 					<HeroCard
 						secretIdentity={hero.secretIdentity}
 						name={hero.name}
 						picture={hero.picture}
 						universe={hero.universe}
 					/>
-				))}
-			</HeroesGrid>
+				)
+				)}
+			</HeroesGrid>)}
 		</>
 	)
 }
