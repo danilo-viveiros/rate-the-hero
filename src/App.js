@@ -8,6 +8,7 @@ function App() {
   return (
 
   <>
+  
   <NormalizeStyles/>
     <BrowserRouter>
     <Header/>

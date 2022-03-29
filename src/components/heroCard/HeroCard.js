@@ -42,16 +42,16 @@ export function HeroCard({secretIndentity, name, picture, universe, id}){
                         <HeadingTwo>{name}</HeadingTwo>
                     </Box>
                     <Description as="div" color={Colors.GRAY_700} >
-                        <strong>Universo:</strong>{universe}
+                        <strong>Universo: </strong>{universe}
                     </Description>
                     <Description as="div" color={Colors.GRAY_700}>
-                        <strong>Nota atual:</strong>-
+                        <strong>Nota atual: </strong>-
                     </Description>
                 </Box> 
-                <HeroAvatar src="https://www.superherodb.com/pictures2/portraits/10/100/639.jpg" />
+                <HeroAvatar src={picture} />
             </InformationGrid>
             <Box width="87px">
-                <ButtonLink to={`/detalhes/${id}`}>Ver mais</ButtonLink>
+               <ButtonLink to={`/detalhes/${id}`}>Ver Mais</ButtonLink>
             </Box>
         </Card>
     );

@@ -34,14 +34,32 @@ export function Search() {
 				px={[Spaces.ONE, Spaces.TWO]}
 				pb={[Spaces.ONE, Spaces.TWO]}
 			>
-				<HeroCard />
-				<HeroCard />
-				<HeroCard />
-				<HeroCard />
-				<HeroCard />
-				<HeroCard />
-				<HeroCard />
-				<HeroCard />
+				<HeroCard 
+				id="1"
+				secretIndentity="Bruce Wayne"
+				name="Batman"
+				picture="https://www.superherodb.com/pictures2/portraits/10/100/639.jpg"
+				universe="DC Comics" />
+				<HeroCard 
+				id="2"
+				secretIndentity="Bruce Wayne"
+				name="Batman"
+				picture="https://www.superherodb.com/pictures2/portraits/10/100/639.jpg"
+				universe="DC Comics" />	
+				<HeroCard 
+				id="3"
+				secretIndentity="Bruce Wayne"
+				name="Batman"
+				picture="https://www.superherodb.com/pictures2/portraits/10/100/639.jpg"
+				universe="DC Comics" />	
+				<HeroCard 
+				id="4"
+				secretIndentity="Bruce Wayne"
+				name="Batman"
+				picture="https://www.superherodb.com/pictures2/portraits/10/100/639.jpg"
+				universe="DC Comics" />
+				
+				
 			</HeroesGrid>
 		</>
 	);
